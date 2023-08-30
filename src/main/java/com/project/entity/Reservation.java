@@ -1,6 +1,8 @@
 package com.project.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Reservations")
@@ -10,12 +12,16 @@ public class Reservation {
     @Column(name = "reservation_id")
     private int id;
     @Column(name = "name")
+    @Size(min = 2, message = "name length could not be so small")
     private String name;
     @Column(name = "surname")
+    @Size(min = 2, message = "surname length could not be so small")
     private String surname;
     @Column(name = "passport")
+    @Size(min = 10, message = "passport length could not be so small")
     private String passport;
     @Column(name = "email")
+    @Size(min = 3, message = "email length could not be so small")
     private String email;
     @Column(name = "is_luggage")
     private boolean is_luggage;

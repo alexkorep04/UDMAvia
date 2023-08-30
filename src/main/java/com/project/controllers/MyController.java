@@ -38,7 +38,7 @@ public class MyController {
     {
         if(bindingResult.hasErrors())
         {
-            return "redirect:/UDMAvia/book";
+            return "booking";
         }
         else
         {
@@ -61,9 +61,16 @@ public class MyController {
         return "buy-ticket";
     }
     @RequestMapping("/UDMAvia/book/afterBooking")
-    public String afterBooking(@ModelAttribute("reservation") Reservation reservation)
+    public String afterBooking(@Valid @ModelAttribute("reservation") Reservation reservation, BindingResult bindingResult)
     {
-        flightDAO.saveReservation(reservation);
-        return "after-booking";
+        if(bindingResult.hasErrors())
+        {
+            return "buy-ticket";
+        }
+        else
+        {
+            flightDAO.saveReservation(reservation);
+            return "after-booking";
+        }
     }
 }
