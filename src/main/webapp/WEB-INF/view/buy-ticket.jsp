@@ -3,15 +3,44 @@
 <html>
 <head>
   <title>UDMAvia</title>
+  <style>
+    body {
+      background-color: lavender;
+    }
+    form {
+      width: 30%;
+      margin-left: 35%;
+    }
+    input{
+      width: 70%;
+    }
+    form label {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+    }
+    form label2 {
+      background-color: #4CAF50;
+      border: black;
+      margin-left: 35%;
+      width: 30%;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
+<h1 align="center">Enter your data!</h1>
 <form:form action="afterBooking" modelAttribute="reservation">
   <br>
-  Name: <form:input path="name"/>
+  <label>Name: <form:input path="name"/></label>
   <br>
-  Surname: <form:input path="surname"/>
+  <label>Surname: <form:input path="surname"/></label>
   <br>
-  Passport: <form:input path="passport"/>
+  <label>Passport: <form:input path="passport"/></label>
+  <br>
+  <label>Email: <form:input path="email"/></label>
   <br>
   <form:hidden path="flight.id"/>
   <form:hidden path="flight.flight_name"/>
@@ -25,7 +54,7 @@
   <form:hidden path="flight.amount"/>
   <form:hidden path="flight.plane"/>
   <form:hidden path="flight.price"/>
-  <input type="submit" value="OK"/>
+  <label2><input type="submit" value="OK"/></label2>
 </form:form>
 </body>
 </html>

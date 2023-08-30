@@ -1,12 +1,18 @@
 package com.project.entity;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 
 public class FindFlight {
     private String cityFrom;
     private String cityTo;
+    @Min(value = 1, message = "day is between 1 and 31")
+    @Max(value = 31, message = "day is between 1 and 31")
     private int day;
+    @Min(value = 1, message = "month is between 1 and 12")
+    @Max(value = 12, message = "month is between 1 and 12")
     private int month;
     private int year;
 

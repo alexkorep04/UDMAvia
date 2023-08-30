@@ -3,12 +3,29 @@
 <html>
 <head>
     <title>UDMAvia</title>
+    <style type="text/css">
+        body {
+            background-color: lavender;
+        }
+        TABLE {
+            width: 100%;
+    border-collapse: collapse;
+   }
+   TD, TH {
+    padding: 3px;
+    border: 1px solid black;
+       align-content: center;
+   }
+   TH {
+    background: #b0e0e6;
+        }
+    </style>
 </head>
 <body>
-<h2>All flights</h2>
+<h2 align="center">All flights</h2>
 <br>
-<table>
-    <tr style="border-bottom:1px solid black">
+<table style="border:1px solid black">
+    <tr style="border:1px solid black">
         <th colspan="100%">Flight name</th>
         <th colspan="100%">City from</th>
         <th colspan="100%">City to</th>
@@ -24,7 +41,7 @@
         <c:url var="bookButton" value="/UDMAvia/book/buy">
             <c:param name="flightId" value="${flight.id}"/>
         </c:url>
-        <tr style="border-bottom:1px solid black">
+        <tr style="border:1px solid black">
             <td colspan="100%">${flight.flight_name}</td>
             <td colspan="100%">${flight.cityFrom}</td>
             <td colspan="100%">${flight.cityTo}</td>

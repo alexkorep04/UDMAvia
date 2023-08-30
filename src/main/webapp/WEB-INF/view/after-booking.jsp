@@ -9,10 +9,14 @@
 <html>
 <head>
     <title>UDMAvia</title>
+    <style>
+        body {
+            background-color: lavender;
+        }</style>
 </head>
 <body>
     <h1 align="center">You successfully booked a ticket to a flight!</h1>
-    <h1 align="center">Please make the payment at any office of our company within 3 days, otherwise the reservation will automatically disappear!</h1>
+    <h1 align="center">We sent you a message on email about further actions!</h1>
     <h1 align="center" ><input type="button"  value="Main page"  onclick="window.location.href ='/UDMAvia'"></h1>
 </body>
 </html>

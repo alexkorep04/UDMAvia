@@ -8,10 +8,12 @@ import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -32,15 +34,22 @@ public class MyController {
         return "booking";
     }
     @RequestMapping("/UDMAvia/book/showAllFlights")
-    public String showAllFlightsByCityAndDate(Model model, @ModelAttribute("findFlight")  FindFlight findFlight)
+    public String showAllFlightsByCityAndDate(Model model, @Valid @ModelAttribute("findFlight")  FindFlight findFlight, BindingResult bindingResult)
     {
-        List<Flights> allList= flightDAO.findFlights(findFlight);
-        if(allList.isEmpty())
+        if(bindingResult.hasErrors())
         {
-            return "all-flights-by-parameters-empty";
+            return "redirect:/UDMAvia/book";
         }
-        model.addAttribute("allFlights", allList);
-        return  "all-flights-by-parameters";
+        else
+        {
+            List<Flights> allList= flightDAO.findFlights(findFlight);
+            if(allList.isEmpty())
+            {
+                return "all-flights-by-parameters-empty";
+            }
+            model.addAttribute("allFlights", allList);
+            return  "all-flights-by-parameters";
+        }
     }
     @RequestMapping("/UDMAvia/book/buy")
     public String buyTicket(@RequestParam("flightId") int id, Model model)

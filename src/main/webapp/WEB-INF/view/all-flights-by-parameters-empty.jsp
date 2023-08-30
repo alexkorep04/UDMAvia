@@ -3,8 +3,12 @@
 <html>
 <head>
   <title>UDMAvia</title>
+  <style>
+    body {
+      background-color: lavender;
+    }</style>
 </head>
 <body>
-<h1>Sorry, there are no any tickets on this date!</h1>
+<h1 align="center">Sorry, there are no any tickets on this date!</h1>
 </body>
 </html>
